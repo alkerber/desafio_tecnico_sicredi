@@ -1,0 +1,17 @@
+create or replace table dev.bronze.transacoes(
+    id_transacao        string comment 'Identificador único da transação'
+    ,id_cartao          string comment 'FK cartoes'
+    ,data_transacao     string comment 'Data da transação'
+    ,valor              string comment 'Valor da transação'
+    ,mcc                string comment 'Merchant Category Code. Indica a categoria comercial do estabelecimento'
+    ,estabelecimento    string comment 'Nome do estabelecimento'
+    ,canal              string comment 'Canal da transação: POS, ECOMMERCE,CONTACTLESS, ATM, WALLET...'
+    ,pais               string comment 'País da transação'
+    ,moeda              string comment 'Moeda da transação. Ex: BRL, USD, EUR'
+    ,arquivo_origem     string comment 'Arquivo origem importado'
+    ,data_ingestao      date   comment 'Data da carga do arquivo'
+    ,timestamp_ingestao timestamp comment 'Timestamp da carga do arquivo'
+    ,batch_id           string comment 'Identificador único do batch'  
+    ,hash_linha         string comment 'hash sha 256 da linha carregada'
+);
+comment on table dev.bronze.transacoes is 'Informações de transações nos cartões'

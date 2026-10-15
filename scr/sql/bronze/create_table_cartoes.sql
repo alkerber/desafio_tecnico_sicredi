@@ -1,0 +1,15 @@
+create or replace table dev.bronze.cartoes (
+    id_cartao           string comment 'Identificador do cartão'
+    ,id_conta           string comment 'FK tabela contas'
+    ,tipo_cartao        string comment 'Tipo do cartão: [D]ébito, [C]rédito'
+    ,limite             string comment 'Valor do limite total do cartão'
+    ,status_cartao      string comment 'Status do cartão: [A]tivo, [B]loqueado, [C]ancelado'
+    ,data_atualizacao   string comment 'Data e hora da atualização do registro'
+    ,operacao           string comment 'Indica o tipo da operação do registro:[I]nsert,[D]elete,U[pdate]'
+    ,arquivo_origem     string comment 'Arquivo origem importado'
+    ,data_ingestao      date   comment 'Data da carga do arquivo'
+    ,timestamp_ingestao timestamp comment 'Timestamp da carga do arquivo'
+    ,batch_id           string comment 'Identificador único do batch'  
+    ,hash_linha         string comment 'hash sha 256 da linha carregada'   
+);
+comment on table dev.bronze.cartoes is 'Informações de cartões'

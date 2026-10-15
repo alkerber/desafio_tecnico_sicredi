@@ -1,0 +1,15 @@
+create or replace table dev.bronze.contas(
+    id_conta            string comment 'Identificador único da conta'
+    ,id_cliente         string comment 'Identificador único do cliente. FK tabela clientes'
+    ,tipo_conta         string comment 'Tipo da conta: [C]orrente,[S]alário,[P]oupança'
+    ,status_conta       string comment 'Status da conta: [A]tiva, [E]ncerrada, [B]loqueada'
+    ,data_abertura      string comment 'Data e hora da abertura da conta'
+    ,data_atualizacao   string comment 'Data da atualização do registro'
+    ,operacao           string comment 'Indica o tipo da operação do registro:[I]nsert,[D]elete,U[pdate]'
+    ,arquivo_origem     string comment 'Arquivo origem importado'
+    ,data_ingestao      date   comment 'Data da carga do arquivo'
+    ,timestamp_ingestao timestamp comment 'Timestamp da carga do arquivo'
+    ,batch_id           string comment 'Identificador único do batch'  
+    ,hash_linha         string comment 'hash sha 256 da linha carregada'
+);
+comment on table dev.bronze.contas is 'Informações de contas'
